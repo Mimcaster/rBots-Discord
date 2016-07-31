@@ -20,7 +20,13 @@ public class MessageListener
         {
         	System.out.println("testing 1 2 3");
         	String message = event.getMessage().getContent();
-        	if(message.equalsIgnoreCase("rbots leave now please"))
+        	
+        	if(message.equalsIgnoreCase("rbots leave 4ever"))
+       	 	{
+       			new MessageBuilder(App.client).withChannel(event.getMessage().getChannel()).withContent("goodbye forever").build();
+       			App.client.logout();
+       	 	}
+        	else if(message.equalsIgnoreCase("rbots leave now please"))
         	{
         		//App.client.logout();
         		new MessageBuilder(App.client).withChannel(event.getMessage().getChannel()).withContent("ok im asleep").build();
@@ -39,11 +45,6 @@ public class MessageListener
         	{
         		new MessageBuilder(App.client).withChannel(event.getMessage().getChannel()).withContent("ok im awake").build();
         		talkcool = true;
-        	}
-        	else if(message.equalsIgnoreCase("rbots leave 4ever"))
-        	{
-        		new MessageBuilder(App.client).withChannel(event.getMessage().getChannel()).withContent("goodbye forever").build();
-        		App.client.logout();
         	}
 
 		} 
